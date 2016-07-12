@@ -15,11 +15,6 @@ abstract class MetodosFinal
 	}
 }
 
-/*
-As classes que estebderem de Animal, obrigatóriamente devem ter o método Alimentar();
-Iremos abaixo criar uma classe Chachorro com o método Alimentar.
- */
-
 class Teste extends MetodosFinal
 {
 	public $Testando;
