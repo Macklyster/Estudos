@@ -7,30 +7,53 @@ Para acessar o Install Package, digite o atalho **CTRL+SHIFT+P**, irá mostrar u
 
 Alguns pacotes eu irei comentar para que serve, outros irei apenas deixar o nome, por ser uma explicação mais extensa.
 
-*SublimeLinter
-*SublimeLinter-jshint
-*Emmet
-*SublimeEnhancements
-*ColorPicker - Para aparecer a caixa de cores aperte o atalho: CTRL+SHIFT+C
-*Snippets
-*ColorHighlighter
-*JavaScriptNext
-*Alignment
-*Bracket Highlighter
-*AutoFileName
-*LESS
-*jQuery
-*All Autocomplete
-*Reindent
-*TrailingSpaces
-*SASS
-*LESS
-*git
-*Placeholders
-*PHPDoc
-*jsFormat
-*Dockblockr
-*AngularJs
+1. SublimeLinter
+
+* SublimeLinter-jshint
+
+* Emmet
+
+* SublimeEnhancements
+
+* ColorPicker - Para aparecer a caixa de cores aperte o atalho: CTRL+SHIFT+C
+
+* Snippets
+
+* ColorHighlighter
+
+* JavaScriptNext
+
+* Alignment
+
+* Bracket Highlighter
+
+* AutoFileName
+
+* LESS
+
+* jQuery
+
+* All Autocomplete
+
+* Reindent
+
+* TrailingSpaces
+
+* SASS
+
+* LESS
+
+* git
+
+* Placeholders
+
+* PHPDoc
+
+* jsFormat
+
+* Dockblockr
+
+* AngularJs
 
 OBS: Pensei em colocar os temas que utilizo, mas isso vai do gosto de cada um, aconselho fazer uma pesquisa dos medelos no google e analisar o que mais lhe agrada.
 
