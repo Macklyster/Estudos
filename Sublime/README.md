@@ -7,7 +7,7 @@ Para acessar o Install Package, digite o atalho **CTRL+SHIFT+P**, irá mostrar u
 
 Alguns pacotes eu irei comentar para que serve, outros irei apenas deixar o nome, por ser uma explicação mais extensa.
 
-1. SublimeLinter
+* SublimeLinter
 
 * SublimeLinter-jshint
 
