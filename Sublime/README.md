@@ -7,7 +7,7 @@ Para acessar o Install Package, digite o atalho **CTRL+SHIFT+P**, irá mostrar u
 
 Alguns pacotes eu irei comentar para que serve, outros irei apenas deixar o nome, por ser uma explicação mais extensa.
 
-1. SublimeLinter
+* SublimeLinter
 
 * SublimeLinter-jshint
 
@@ -60,4 +60,4 @@ OBS: Pensei em colocar os temas que utilizo, mas isso vai do gosto de cada um, a
 Eu tenho outros plugins, como por exemplo: **NodeJS**, **Python** e **PHP**, mas isso também depende de qual linguagem você vai trabalhar, basta pesquisar os plugins para a sua linguagem preferida.
 
 
->Em breve coloco mais! :)
+>Em breve coloco mais!
