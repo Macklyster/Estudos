@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Hello World</title>
+    </h:head>
+    <h:body>
+        <p>Bem vindo <h:outputText value="#{helloWorldMb.nome}"/></p>
+
+        <h:messages globalOnly="true" />
+        
+        <h:form enctype="multipart/form-data" id="form1">
+
+            <h:panelGrid columns="3">
+
+                <h:outputLabel value="Nome:" for="nome"/>
+                <h:inputText id="nome" value="#{helloWorldMb.nome}" />
+
+                <h:message for="nome"/>
+
+                <h:outputLabel value="Senha:" for="senha"/> 
+                <h:inputSecret id="senha" value="#{helloWorldMb.senha}"/>
+
+                <h:message for="senha" />
+            </h:panelGrid>
+            
+            <h:panelGrid columns="2">
+                
+                <h:outputLabel value="Cidades:" for="cidade"/> 
+                <h:selectOneMenu id="cidade" value="#{helloWorldMb.cidade}">
+                    <f:selectItem itemLabel="Selecione" noSelectionOption="true" />
+                    <f:selectItems value="#{helloWorldMb.cidades}" var="cidade" itemLabel="#{cidade}" itemValue="#{cidade}"/>
+                </h:selectOneMenu>
+
+                <h:outputLabel value="Imagem:" for="imagem"/>
+                <h:inputFile id="imagem"/>
+
+                <h:commandButton value="Enviar" action="#{helloWorldMb.enviar()}"/>
+
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
