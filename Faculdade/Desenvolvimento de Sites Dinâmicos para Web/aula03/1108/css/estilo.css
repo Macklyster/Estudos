@@ -1,0 +1,10 @@
+/* alterar mensagem de erro */
+
+#msgemail, .help-block {
+	color: #F00;
+	font-weight: bold;
+}
+
+.cnpj{
+	display:none;
+}
