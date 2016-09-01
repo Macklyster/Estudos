@@ -8,6 +8,7 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
+        <h1>Cadastro de Aluno</h1>
         <h:form>
             <h:panelGrid columns="3">
 
@@ -16,6 +17,12 @@
                     <f:converter converterId="maiusculoConverter"/>
                 </h:inputText>
                 <h:message for="nome" />
+                
+                <h:outputLabel value="Matricula" for="matricula" />
+                <h:inputText id="matricula" value="#{alunoCreateMb.aluno.numero}" label="Matricula">
+                    <f:validator validatorId="matriculaValidar" />
+                </h:inputText>
+                <h:message for="matricula" />
 
                 <h:outputLabel value="Nascimento" for="nascimento" />
                 <h:inputText id="nascimento" value="#{alunoCreateMb.aluno.nascimento}" label="Nascimento" required="true">
@@ -35,12 +42,7 @@
                     <f:validator validatorId="emailValidator" />
                 </h:inputText>
                 <h:message for="email" />
-
-                <h:outputLabel value="Matricula" for="matricula" />
-                <h:inputText id="matricula" value="#{alunoCreateMb.aluno.numero}" label="Matricula">
-
-                </h:inputText>
-                <h:message for="matricula" />
+                
             </h:panelGrid>
 
             <h:commandButton value="Salvar" action="#{alunoCreateMb.salvar()}" />

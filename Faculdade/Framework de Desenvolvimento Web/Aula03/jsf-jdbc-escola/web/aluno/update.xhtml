@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:metadata>
+            <f:viewParam name="idpessoa" value="#{alunoUpdateMb.usuario.idpessoa}" required="true" />
+            <f:event type="preRenderView" listener="#{alunoUpdateMb.loadAluno()}" />
+        </f:metadata>
+        
+        <h1 id="meuh1">Editar Usuário</h1>
+        <h:messages />
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Nome" for="nome" />
+                <h:inputText id="nome" value="#{alunoUpdateMb.usuario.nome}" label="Nome">
+                    <f:converter converterId="maiusculoConverter" />
+                </h:inputText>
+                <h:message for="nome" />
+                
+                <h:outputLabel value="Matricula" for="matricula" />
+                <h:inputText id="matricula" value="#{alunoUpdateMb.usuario.numero}" label="Matricula">
+                </h:inputText>
+                <h:message for="matricula" />
+                
+                               
+                <h:commandButton value="Salvar" action="#{usuarioUpdateMb.salvar()}" />
+                
+            </h:panelGrid>
+            </h:form>
+    </h:body>
+</html>
+
