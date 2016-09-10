@@ -1,0 +1,107 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat|Roboto';
+
+@mont: Montserrat, Tahoma, Verdana;
+@robo: Roboto, Arial;
+
+@claro: #ccc;
+@escuro: #333;
+@vermelho: #F00;
+
+@tam1: 2em;
+@tam2: 1.8em;
+@tam3: 1.5em;
+@tam4: 1.1em;
+
+.logo{
+	float:left;
+	color: red;
+	font-size: 35px;
+	margin-top: 25px;
+}
+
+.logo:hover{
+	color: @vermelho;
+	text-decoration: none;
+}
+
+.info{
+	float: right;
+	padding: 40px;
+
+	span{
+		color: @vermelho;
+	}
+
+	a{
+		color: @claro;
+		text-decoration: none;
+		margin-left: 15px;
+	}
+
+	a:hover{
+		color: @escuro;
+	}
+}
+main {
+	padding: 20px;
+}
+
+footer{
+	background-color: @escuro;
+	//width: 100%;
+	padding: 10px 0px;
+	color: #fff;
+	margin-top: 20px;
+
+	img{
+		width: 10%;
+	}
+}
+
+
+
+h1, h2, h3{
+	color: @vermelho;
+	font-family: @mont;
+}
+
+h1{
+	font-size: @tam1;
+}
+
+h2{
+	font-size: @tam2;
+}
+
+h3{
+	font-size: @tam3;
+}
+
+.erro{
+	font: @tam3 @robo;
+	text-align: center;
+	width: 400px;
+}
+
+.btn-danger, .well{
+	border-radius: none;
+	border: 0px;
+}
+
+@media (max-width: 481px){
+	header{
+		.logo, .info{
+			width: 100%;
+			text-align: center;
+		}
+		.info{
+			font-size: @tam3;
+		}
+	}
+	footer{
+		span{
+			width: 100%;
+			text-align: center;
+		}
+	}
+}

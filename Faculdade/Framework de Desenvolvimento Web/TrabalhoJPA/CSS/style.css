@@ -1,0 +1,77 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat|Roboto';
+.logo {
+  float: left;
+  color: red;
+  font-size: 35px;
+  margin-top: 25px;
+}
+.logo:hover {
+  color: #ff0000;
+  text-decoration: none;
+}
+.info {
+  float: right;
+  padding: 40px;
+}
+.info span {
+  color: #ff0000;
+}
+.info a {
+  color: #cccccc;
+  text-decoration: none;
+  margin-left: 15px;
+}
+.info a:hover {
+  color: #333333;
+}
+main {
+  padding: 20px;
+}
+footer {
+  background-color: #333333;
+  padding: 10px 0px;
+  color: #fff;
+  margin-top: 20px;
+}
+footer img {
+  width: 10%;
+}
+h1,
+h2,
+h3 {
+  color: #ff0000;
+  font-family: Montserrat, Tahoma, Verdana;
+}
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.8em;
+}
+h3 {
+  font-size: 1.5em;
+}
+.erro {
+  font: 1.5em Roboto, Arial;
+  text-align: center;
+  width: 400px;
+}
+.btn-danger,
+.well {
+  border-radius: none;
+  border: 0px;
+}
+@media (max-width: 481px) {
+  header .logo,
+  header .info {
+    width: 100%;
+    text-align: center;
+  }
+  header .info {
+    font-size: 1.5em;
+  }
+  footer span {
+    width: 100%;
+    text-align: center;
+  }
+}

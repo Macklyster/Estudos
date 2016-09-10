@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Página Inicial</title>
+
+	<link rel="stylesheet" href="CSS/bootstrap.min.css">
+	<link rel="stylesheet" href="CSS/font-awesome.min.css">
+	<link rel="stylesheet" href="CSS/style.css">
+
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-inputmask.min.js"></script>
+	<script src="js/jqBootstrapValidation.js"></script>
+</head>
+<body>
+	<div class="container">
+		<a href="index.php" title="Home" class="logo">
+			Trabalho: FrameWork de Desenvolvimento para Web
+		</a>
+
+		<div class="info">
+
+			<a href="https://github.com/AlexMCoder" title="Meu GitHub">
+				<p>Visite meu GitHub</p>
+			</a>
+		</div>
+	</div>
+</header>
+
+<nav class="navbar navbar-default">
+	<div class="container-fluid container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+		<div class="collapse navbar-collapse" id="menu">
+			<ul class="nav navbar-nav">
+
+				<li><a href="index.html">Home</a></li>
+				<li><a href="entity.html">Entity Manager</a></li>
+				<li><a href="jpql.html">JPQL</a></li>
+				<li><a href="caches.html">Caches</a></li>
+				<li><a href="cicloVida.html">Ciclo de Vida</a></li>
+
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container">
+	<main>
+		<h1>Ciclo de Vida</h1>
+
+		<p>
+			Para entender e saber trabalhar de forma eficaz com qualquer API, devemos saber como a API funciona. E para a nossa sorte a JPA funciona de forma bem simples.
+		</p>
+		<p>
+			Para Entender melhor o funcionamento, vamos considerar a entidade abaixo:
+		</p>
+		<code>
+			@Entity <br>
+			public class Produto { <br>
+
+			@Id <br>
+			@GeneratedValue <br>
+			private Long id; <br>
+
+			private String nome; <br>
+
+			//métodos getters e setters <br>
+		}
+	</code>
+
+	<h2>Estado Transitório</h2>
+	<p>
+		Quando damos um new em uma entidade anotada com @Entity (objeto-entidade), ela ainda não é reconhecida pelo JPA porque ela nunca passou pelo gerenciador de persistência EntityManager. A entidade também não possui um ID e, provavelmente, não existe no banco de dados. Neste caso, não há garantia alguma de que os dados existentes no objeto-entidade serão persistidos no banco quando o processamento do sistema terminar. Este estado é conhecido como Transient.
+	</p>
+
+	<p>
+		Abaixo apresentamos um código onde o objeto-entidade (variável "p") está Transient. Nada ocorre ao final da execução desse código.
+	</p>
+	<code>
+		EntityManager em = //Obtém o entity manager<br>
+		em.getTransaction().begin();<br>
+
+		//Estado Transient<br>
+		Produto p = new Produto(); <br>
+		p.setNome("Macarrão");<br>
+
+		em.getTransaction().commit();<br>
+	</code>
+
+	<h2>Estado Gerenciado</h2>
+	<p>
+		O estado Managed é o estado onde o JPA reconhece a existência de um objeto-entidade e, consequentemente, o JPA garante que esse objeto terá representação idêntica no banco de dados. Isso significa que qualquer alteração que você fizer nesse objeto será automaticamente persistido no banco. Um detalhe importante: a fluxo de sincronização parte sempre do objeto para o banco de dados, nunca ao contrário. Isso significa que o JPA não detecta alterações realizadas diretamente no banco de dados.
+	</p>
+	<p>
+		Para que um objeto-entidade vá para o estado Managed, os métodos persist, merge, find ou getReference devem ser invocados para avisar ao EntityManager sobre a existência do objeto e para que este seja controlado por aquele.
+	</p>
+	<p>
+		Abaixo temos um código que coloca a variável "p" sob gestão do EntityManager.
+	</p>
+	<code>
+		EntityManager em = //Obtém o entity manager <br>
+		em.getTransaction().begin();<br>
+
+		//Estado Transient <br>
+		Produto p = new Produto(); <br>
+		p.setNome("Macarrão"); <br>
+
+		//Estado Managed <br>
+		em.persist(p); //momento 1<br>
+		p.setNome("Macarrão Integral"); //momento 2 <br>
+
+		em.getTransaction().commit(); //momento 3<br>
+	</code>
+
+	<ul>
+		<li>
+			<p>
+				No "momento 1" (execução do método persist), o JPA irá realizar um INSERT no banco de dados com o nome "Macarrão", irá recuperar o ID gerado pelo banco (por causa da anotação @GeneratedValue), irá atribuir esse valor à propriedade anotada com o @Id (propriedade "id") e irá colocar o objeto "p" sob gestão do EntityManager (o estado muda para Managed).
+			</p>
+		</li>
+		<li>
+			<p>
+				No "momento 2" (apenas a execução de um set), houve uma alteração na propriedade nome. Como o objeto já está sendo gerenciado pelo EntityManager, o objeto é marcado como "sujo" para ser atualizado futuramente. Observe que não é necessário um novo persist (ou merge) porque o objeto já está sendo gerenciado pelo EntityManager.
+			</p>
+		</li>
+		<li>
+			<p>
+				No "momento 3" ocorre o commit. O JPA dispara um UPDATE no banco de dados para manter uma representação idêntica no banco - o nome do produto passa a ser "Macarrão Integral".
+			</p>
+		</li>
+	</ul>
+
+	<p>
+		É importante ressaltar que a execução do persist dispara, imediatamente, um INSERT para o banco de dados (ocorre na hora). Por outro lado, por questões de economia, quando um objeto gerenciado sofre uma alteração em uma propriedade (um set), o UPDATE para o banco de dados é adiado até a execução de um commit (o UPDATE não ocorre na hora).
+	</p>
+
+	<p>
+		Abaixo apresentamos um outro exemplo de código que obtém um Produto através do método find e atualiza o seu nome para "Macarrão de Ovos". Observe que, após a alteração do nome do produto, não é necessário fazer uma chamada merge para que os dados sejam persistidos porque o método find já coloca o objeto-entidade "p" em estado gerenciado. Novamente, o JPA irá garantir uma fiel representação desse objeto no banco e realiza um UPDATE automaticamente após o commit.
+	</p>
+	<code>
+		EntityManager em = //Obtém o entity manager <br>
+		em.getTransaction().begin(); <br>
+
+		//Estado Managed <br>
+		Produto p = em.find(Produto.class, 1); <br>
+		p.setNome("Macarrão de Ovos"); <br>
+
+		em.getTransaction().commit();<br>
+	</code>
+	<p>A característica do estado Managed é que o objeto-entidade possui um ID, é conhecido pelo EntityManager e possui a informação no banco de dados.</p>
+
+	Para mais informações sobre o Ciclo de Vida, o que mais entendi a respeito foi retirado do seguinte site: <a href="http://www.arquiteturacomputacional.eti.br/2013/02/entenda-o-ciclo-de-vida-das-entidades.caches.html">Entenda o ciclo de vida das entidades JPA</a>
+</main>
+</div>
+
+<div class="clearfix"></div>
+
+<footer>
+	<div class="container">
+		<span class="pull-left">
+			2016 - Todos os Direitos Reservados
+		</span>
+		<span class="pull-right">
+			Desenvolvido por Alex Morgado Pereira
+		</span>
+	</div>
+</footer>
+
+</div>
+
+</body>
+</html>
