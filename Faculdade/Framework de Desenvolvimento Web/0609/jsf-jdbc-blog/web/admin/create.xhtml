@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h1>Cadastrar Admin</h1>
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Nome" for="nome" />
+                <h:inputText id="nome" value="#{adminCreateMb.admin.nome}" label="Nome">
+                    <f:converter converterId="maiusculoConverter" />
+                </h:inputText>
+                <h:message for="nome" />
+                
+                <h:outputLabel value="E-mail" for="email" />
+                <h:inputText id="email" value="#{adminCreateMb.admin.email}" label="E-mail">
+                    <!-- <f:validator validatorId="emailValidator" /> -->
+                </h:inputText>
+                <h:message for="email" />
+                
+                <h:outputLabel value="Senha" for="senha" />
+                <h:inputSecret id="senha" value="#{adminCreateMb.admin.senha}" label="Senha">
+                
+                </h:inputSecret>
+                <h:message for="senha" />
+               
+                <h:commandButton value="Salvar" action="#{adminCreateMb.salvar()}" />
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
