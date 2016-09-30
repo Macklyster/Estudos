@@ -10,4 +10,5 @@
 3. Custos - Evair
 
 > Entregar e apresentar no dia **03/11**
+>
 > 10 minutos de apresentação cada grupo.
