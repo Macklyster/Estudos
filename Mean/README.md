@@ -27,17 +27,19 @@ Atualmente venho tendo alguns problemas com a inicialização do MondoDb, bastar
 ###Start MongoDB:
 
 $ sudo service mongod start
-mongod start/running, process XXXXX 
+mongod start/running, process XXXXX
 ´´´
+
 ´´´
-Check the Status:
+###Check the Status:
 
 $ sudo service mongod status
-mongod start/running, process XXXXX 
+mongod start/running, process XXXXX
 ´´´
+
 ´´´
-Stop MongoDB:
+###Stop MongoDB:
 
 $ sudo service mongod stop
-mongod stop/waiting 
+mongod stop/waiting
 ´´´
