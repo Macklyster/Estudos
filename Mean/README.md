@@ -23,23 +23,17 @@ Após digitar este código, tente novamente o primeiro, no meu funcionou perfeit
 
 Atualmente venho tendo alguns problemas com a inicialização do MondoDb, bastar fazer a sequencia a baixo que rodará normal com todos os bancos já usados anteriormente.
 
-´´´
-###Start MongoDB:
+####Start MongoDB:
 
-$ sudo service mongod start
+>$ sudo service mongod start
 mongod start/running, process XXXXX
-´´´
 
-´´´
-###Check the Status:
+####Check the Status:
 
-$ sudo service mongod status
+>$ sudo service mongod status
 mongod start/running, process XXXXX
-´´´
 
-´´´
-###Stop MongoDB:
+####Stop MongoDB:
 
-$ sudo service mongod stop
+>$ sudo service mongod stop
 mongod stop/waiting
-´´´
