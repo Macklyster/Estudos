@@ -17,3 +17,27 @@ Porém, no meu caso, começou a dar um erro e através de muitas pesquisas, desc
 >[Link da Explicação](https://docs.npmjs.com/getting-started/fixing-npm-permissions)
 
 Após digitar este código, tente novamente o primeiro, no meu funcionou perfeitamente. Lembrando que foi para o Ubuntu!
+
+
+##Iniciando serviço MongoDb no Ubuntu
+
+Atualmente venho tendo alguns problemas com a inicialização do MondoDb, bastar fazer a sequencia a baixo que rodará normal com todos os bancos já usados anteriormente.
+
+´´´
+###Start MongoDB:
+
+$ sudo service mongod start
+mongod start/running, process XXXXX 
+´´´
+´´´
+Check the Status:
+
+$ sudo service mongod status
+mongod start/running, process XXXXX 
+´´´
+´´´
+Stop MongoDB:
+
+$ sudo service mongod stop
+mongod stop/waiting 
+´´´
