@@ -1,0 +1,27 @@
+<script type="text/javascript">
+	
+	var contas = [
+		{
+			nome: "Alex",
+			conta: 123456,
+			valor: 2500.00
+		}
+	];
+
+	var sacar = function(contas,numero,valor){
+		for(index in contas){
+			var conta = contas[index];
+			if(conta.conta == numero){
+				if(valor <= conta.valor){
+					console.log("Você pode sacar este valor");
+				}else {
+					console.log("Você não tem dinheiro o suficiente, seu saldo é de " + conta.valor);
+				}
+			}else{
+				console.log("o numero informado não corresponde a nenhuma conta.");
+			}
+		}
+	}
+
+	sacar(contas,123456,3000);
+</script>
