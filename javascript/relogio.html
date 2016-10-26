@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Desafio do Relogio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            //Criando a função chamada relogio()
+            //referencias: http://www.w3schools.com/js/js_dates.asp;
+            // http://www.guj.com.br/8315-codigo-para-relogio-digital-em-javascript
+            // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Date
+            function relogio() {
+                var data = new Date(); //Criando o objeto Dataa
+                var horas = data.getHours(); // pegando dentro de data o metodo de horas
+                var minutos = data.getMinutes(); // pegando dentro de data o metodo de minutos
+                var segundos = data.getSeconds(); // pegando dentro de data o metodo segundos
+
+                //o zero tem que ser em string, caso seja em numero ele irá somar.
+                if (horas < 10) {
+                    horas = "0" + horas;
+                }
+                if (minutos < 10) {
+                    minutos = "0" + minutos;
+                }
+                if (segundos < 10) {
+                    segundos = "0" + segundos;
+                }
+                //pegando dentro do documento o id relogio e adicionando um html com as variaveis da data
+                document.getElementById("relogio").innerHTML = horas + ":" + minutos + ":" + segundos;
+            }
+
+            //a cada milisegundo a função relogio será atualizada.
+            window.setInterval("relogio()", 1000);
+        </script>
+    </head>
+    <body>
+        <div id="relogio"></div>
+    </body>
+</html>
