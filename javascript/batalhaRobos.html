@@ -1,0 +1,43 @@
+<script type="text/javascript">
+
+var Robo = function(atributos){
+	this.nome = atributos.nome || '';
+	this.vida = 100;
+	this.atributos = {
+		forca: atributos.forca || 10,
+		defesa: atributos.defesa || 15,
+		velocidade: atributos.velocidade || 20
+	};
+	this.atacar = function(){
+		return Math.floor(Math.random()* this.atributos.forca);
+	};
+	this.defender = function(valorAtaque){
+		var velocidadeEsquiva = Math.floor(Math.random()*this.atributos.velocidade);
+		if(velocidadeEsquiva <= this.atributos.velocidade * 0.9){
+			if(this.atributos.defesa < valorAtaque){
+				this.vida -= valorAtaque;
+			}
+		}
+	};
+}
+
+var robo = new Robo({
+	nome:'Robo1',
+	forca: 20,
+	defesa: 30,
+	velocidade: 25
+});
+
+var robo2 = new Robo({
+	nome:'Robo2',
+	forca: 10,
+	defesa: 5,
+	velocidade: 2
+})
+
+
+robo2.defender(robo.atacar());
+
+console.log(robo2.vida);
+
+</script>
