@@ -217,8 +217,8 @@ Lembre-se que nossa view não pode ter acesso ao banco de dados, isso não é o 
     <h1>Listagem de produtos</h1>
 
     <table>
-       foreach ($produtos as $p):?>
-       <tr>
+     foreach ($produtos as $p):?>
+     <tr>
         <td><?=$p->nome?></td>
         <td><?=$p->valor?></td>
         <td><?=$p->descricao?></td>
