@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/template.xhtml">
+            <ui:define name="h1">Tela de Listagem</ui:define>  
+            <ui:define name="body">
+                <h:form>
+                <p:dataTable value="#{usuariosMb.usuarios}" var="usuario" id="tabela">
+                    <p:column>
+                        <f:facet name="header">Código</f:facet>
+                        #{usuario.idpessoa}
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">Nome</f:facet>
+                        #{usuario.nome}
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">Nascimento</f:facet>
+                        <h:outputText value="#{usuario.nascimento}">
+                            <f:convertDateTime />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <p:commandButton actionListener="#{usuariosMb.apagar(usuario)}" value="Apagar" icon="ui-icon-trash" update="tabela"/>
+                    </p:column>
+                    <p:column>
+                        <p:button value="Editar" outcome="/usuario/update.xhml" icon="ui-icon-document">
+                            <f:param name="idpessoa" value="#{usuario.idpessoa}"></f:param>
+                        </p:button>
+                    </p:column>
+                    <p:column>
+                        <p:button value="Foto" outcome="/usuario/foto.xhtml" icon="ui-icon-image">
+                            <f:param name="idpessoa" value="#{usuario.idpessoa}" />
+                        </p:button>
+                    </p:column>
+                </p:dataTable>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
