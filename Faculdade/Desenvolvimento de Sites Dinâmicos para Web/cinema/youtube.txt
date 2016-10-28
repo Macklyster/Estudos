@@ -1,0 +1,17 @@
+<script>
+	$(document).ready(function(){
+		
+		$(".youtube").colorbox({iframe:true, innerWidth:640, innerHeight:390});
+
+	})
+</script>
+
+http://www.jacklmoore.com/colorbox/example1/
+
+https://www.youtube.com/watch?v=IxhSD_n3J6c
+
+http://i1.ytimg.com/vi/IxhSD_n3J6c/default.jpg
+
+http://i1.ytimg.com/vi/IxhSD_n3J6c/mqdefault.jpg
+
+http://i1.ytimg.com/vi/IxhSD_n3J6c/hqdefault.jpg

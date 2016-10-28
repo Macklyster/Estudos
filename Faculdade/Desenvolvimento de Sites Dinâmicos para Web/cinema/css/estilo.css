@@ -1,0 +1,16 @@
+body {
+	padding-top: 50px;
+}
+
+.cycle-slideshow, .cycle-slide, .img { width: 100%; }
+
+footer {
+	width: 100%;
+	background: #ccc;
+	padding: 15px 0px;
+}
+
+.nav-pills li a { background: #4DA6FF; color: #fff; }
+
+.nav-pills li a:hover { background: #006DD9; }
+
