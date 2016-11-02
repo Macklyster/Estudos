@@ -176,6 +176,17 @@ E pronto, basta verificar no banco que os dados foram inseridos. A mensagem que 
 
 >Seeded: ProdutoTableSeeder
 
+#Criando a classe Request pelo Artisan
+
+Para validarmos os formulários é recomendado criar uma classe especifica para as regras dos campos, para isso vamos criar no Request essa classe.
+Ela fica localizada em **app/Http/Requests**, não podemos esquecer que ela é herdada de request.
+
+Para facilitar esse trabalhar de criar a classe, o Artisan pode fazer isso para nós. Digitando apenas o comando abaixo:
+
+>php artisan make:request nomeDoArquivo
+
+Bem parecido, quando estamos criando um novo modelo.
+
 
 #Configurando as Rotas
 
@@ -217,8 +228,8 @@ Lembre-se que nossa view não pode ter acesso ao banco de dados, isso não é o 
     <h1>Listagem de produtos</h1>
 
     <table>
-     foreach ($produtos as $p):?>
-     <tr>
+       foreach ($produtos as $p):?>
+       <tr>
         <td><?=$p->nome?></td>
         <td><?=$p->valor?></td>
         <td><?=$p->descricao?></td>
@@ -249,4 +260,6 @@ Em nosso arquivo **.env** pode ser colocado a seguinte linha:
 >APP_DEBUG=TRUE
 
 Com isso, os erros serão mais detalhados pelo Laravel, quando é acessado pelo navegador.
+
+
 
