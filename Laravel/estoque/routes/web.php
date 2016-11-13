@@ -14,7 +14,8 @@ Route::get('/produtos/remove/{id}', 'ProdutoController@remove');
 
 Route::get('home', 'HomeController@index');
 
-Route::controllers([
-		'auth'     => 'Auth\AuthController',
-		'password' => 'Auth\PasswordController',
-	]);
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('/login', 'LoginController@login');

@@ -20,6 +20,11 @@
 				<span class="glyphicon glyphicon-search"></span>
 			</a>
 		</td>
+		<td>
+			<a href="{{action('ProdutoController@remove', $p->id)}}">
+				<span class="glyphicon glyphicon-trash"></span>
+			</a>
+		</td>
 	</tr>
 	@endforeach
 </table>
@@ -29,5 +34,11 @@
 <h4>
 	<span class="label label-danger pull-right">Um ou menos itens no estoque</span>
 </h4>
+
+@if(old('nome'))
+<div class="alert alert-success">
+	O Produto {{old('nome')}} foi adicionado com sucesso!
+</div>
+@endif
 
 @stop
