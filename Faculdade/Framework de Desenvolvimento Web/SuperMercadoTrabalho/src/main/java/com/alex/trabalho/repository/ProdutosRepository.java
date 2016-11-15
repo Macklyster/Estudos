@@ -15,12 +15,21 @@ public class ProdutosRepository implements Serializable {
 	@Inject
 	EntityManager manager;
 	
+	public Produtos porId(Long id) {
+		return manager.find(Produtos.class, id);
+	}
+	
 	public List<Produtos> todos() {
 		return manager.createQuery("FROM Produtos", Produtos.class).getResultList();
 	}
 	
 	public Produtos guardar(Produtos produto) {
 		return manager.merge(produto);
+	}
+	
+	public void remover(Produtos produto) {
+		produto = porId(produto.getId());
+		manager.remove(produto);
 	}
 	
 }
